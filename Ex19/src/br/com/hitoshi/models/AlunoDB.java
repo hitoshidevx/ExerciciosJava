@@ -70,10 +70,7 @@ public class AlunoDB {
 			rs = statement.executeQuery(query);
 			
 			while(rs.next()) {
-				System.out.println(rs.getString("id") + " ");
-				System.out.println(rs.getString("nome") + " ");
-				System.out.println(rs.getString("ra") + " ");
-				System.out.println(rs.getString("curso") + " ");
+				System.out.printf("Id: %s - Nome: %s - R.A: %s - Curso: %s\n", rs.getString("id"), rs.getString("nome"), rs.getString("ra"), rs.getString("curso"));
 			}
 			
 		} catch (Exception e) {
