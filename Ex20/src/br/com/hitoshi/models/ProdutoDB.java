@@ -24,7 +24,7 @@ public class ProdutoDB {
 			
 			
 		} catch (Exception e) {
-			System.out.println(e.toString());
+			System.out.println(e);
 		}
 		
 		return conn;
@@ -32,13 +32,13 @@ public class ProdutoDB {
 	
 	public void InserirProdutoDB(Produto pd) {
 		
-		Connection conn = ConexaoDB("pccdpppp", "pccdpppp", "Nlqv4a9GG0EemQYtwpD258Arel3AVxup");
+		Connection conn = ConexaoDB("pccdpppp", "pccdpppp", "j09eZSVo9ueLk2AmoeS9uCz3Q68Ky04h");
 		
 		Statement statement;
 		
 		try {
 			
-			String query = String.format("insert into (id, nome, preco, quantidade) values ('%d', '%s', '%f', '%d')", pd.getId(), pd.getNomeProduto(), pd.getPrecoProduto(), pd.getQuantidade());
+			String query = String.format("insert into tb_produto (id, nome, preco, quantidade) values ('%d', '%s', '%f', '%d')", pd.getId(), pd.getNomeProduto(), pd.getPrecoProduto(), pd.getQuantidade());
 			
 			statement = conn.createStatement();
 			
@@ -52,9 +52,9 @@ public class ProdutoDB {
 		
 	}
 	
-	public void ListarProdutoDB(Produto pd) {
+	public void ListarProdutoDB() {
 		
-		Connection conn = ConexaoDB("pccdpppp", "pccdpppp", "Nlqv4a9GG0EemQYtwpD258Arel3AVxup");
+		Connection conn = ConexaoDB("pccdpppp", "pccdpppp", "j09eZSVo9ueLk2AmoeS9uCz3Q68Ky04h");
 		
 		Statement statement;
 		
@@ -62,7 +62,7 @@ public class ProdutoDB {
 		
 		try {
 			
-			String query = "select * from tb_produto";
+			String query = "select * from tb_produto;";
 			
 			statement = conn.createStatement();
 			
