@@ -48,7 +48,7 @@ public class AlunoDB {
 			
 			
 		} catch (Exception e) {
-			System.out.println(e);
+			System.out.println(e.toString());
 		}
 		
 	}
@@ -69,12 +69,16 @@ public class AlunoDB {
 			
 			rs = statement.executeQuery(query);
 			
-			while(rs.next()) {
-				System.out.printf("Id: %s - Nome: %s - R.A: %s - Curso: %s\n", rs.getString("id"), rs.getString("nome"), rs.getString("ra"), rs.getString("curso"));
+			if(rs.getFetchSize() == 0) {
+				System.out.println("\nNão há alunos cadastrados no banco!");
+			} else {
+				while(rs.next()) {
+					System.out.printf("Id: %s - Nome: %s - R.A: %s - Curso: %s\n", rs.getString("id"), rs.getString("nome"), rs.getString("ra"), rs.getString("curso"));
+				}
 			}
 			
 		} catch (Exception e) {
-			System.out.println(e);
+			System.out.println(e.toString());
 		}
 		
 	}
